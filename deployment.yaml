@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: converter-app
+  labels:
+    app: converter-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: converter-app
+  template:
+    metadata:
+      labels:
+        app: converter-app
+    spec:
+      containers:
+      - name: converter-app
+        image: your_dockerhub_username/converter-app:latest
+        ports:
+        - containerPort: 8080
